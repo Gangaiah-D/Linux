@@ -1,3 +1,4 @@
+2A. Compare Two Strings
 echo enter two strings
 read a
 read b
@@ -15,3 +16,138 @@ echo The strings are equal
 else
 echo The strings are not equal
 fi
+---------------------------------------
+2B. Extract the First and Last Character from a string
+echo enter the string
+read a
+first="${a:0:1}"
+second="${a: -1}"
+echo $first
+echo $second
+---------------------------------
+2C. Palindrome
+echo "Enter the number"
+read n
+num=0
+a=$n
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+if [ $num -eq $a ]
+then
+echo "it is a palindrome"
+else
+echo "it is not a palindrome"
+fi
+--------------------------
+3A. Factorial
+echo enter the number of rows
+read r
+i=1
+t=1
+while [ $i -le $r ]
+do
+j=1
+while [ $j -le $i ]
+do
+echo -n "*"
+j=$((j+1))
+done
+echo
+i=$((i+1))
+done
+-------------------------------
+3B. Sum of n numbers
+echo How many numbers do you need to add
+read n
+i=1
+sum=0
+echo Enter the numbers
+while [ $i -le $n ]
+do
+read num
+sum=$((sum + num))
+i=$((i + 1))
+done
+echo Total is $sum
+----------------------------------
+3C. Menu Driven Program to Perform Arithmetic Operation
+echo Enter two numbers
+read a
+read b
+echo MENU
+echo 1.Addition 2.Subraction 3.Multiplication 4.Division
+echo Select from the above menu
+read c
+case $c in
+1) echo sum = $(expr $a + $b);;
+2) echo Difference = $(expr $a - $b);;
+3) echo Product = $(expr $a \* $b);;
+4) echo Quotient = $(expr $a / $b);;
+5) echo Invalid Choice
+esac
+------------------------------------
+3D. Print * Pattern
+echo enter the number of rows
+read r
+i=1
+t=1
+while [ $i -le $r ]
+do
+j=1
+while [ $j -le $i ]
+do
+echo -n "*"
+j=$((j+1))
+done
+echo
+i=$((i+1))
+done
+--------------------------
+4A. Convert the characters of file from Lowercase to Uppercase
+echo "Enter the filename"
+read name
+if [ ! -f $name ]
+then
+echo filename $name does not exist
+exit 1
+fi
+tr "[a-z]" "[A-Z]" < $name
+--------------------------------
+4B. Count the Number of characters, words and lines in a given
+text file.
+echo Enter the filename
+read file
+c=`cat $file | wc -c`
+w=`cat $file | wc -w`
+l=`grep -c "." $file`
+echo Number of characters in $file is $c
+echo Number of Words in $file is $w
+echo Number of lines in $file is $l
+----------------------------
+4C. Check if the given file exists, if not create a new file.
+echo enter the file name
+read file
+if [ -f $file ]
+then
+echo File exists
+else
+echo File does not exist
+touch $file
+echo $file has been created
+fi
+---------------------------------
+5. Display Various System Information
+echo SYSTEM INFORMATION
+echo Current Date is $(date)
+echo Current Directory = $(pwd)
+echo Kernel All Information = $(uname -m)
+echo Disk space Usage:
+df
+echo List of blocked devices:
+lsblk
+------------------------------
