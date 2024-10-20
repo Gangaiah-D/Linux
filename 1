@@ -1,0 +1,17 @@
+echo enter two strings
+read a
+read b
+if [ -z $a ]
+then
+echo The first string is empty
+fi
+if [ -z $b ]
+then
+echo The second string is empty
+fi
+if [ $a = $b ]
+then
+echo The strings are equal
+else
+echo The strings are not equal
+fi
